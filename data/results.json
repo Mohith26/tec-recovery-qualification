@@ -1,0 +1,202 @@
+{
+ "generated": "node scripts/build_data.mjs",
+ "conf": 0.9,
+ "posteriors": {
+  "trigger": {
+   "a": 1.5,
+   "b": 0.75
+  },
+  "mortar": {
+   "a": 2.5,
+   "b": 0.5
+  },
+  "drogue": {
+   "a": 12.5,
+   "b": 0.5
+  },
+  "cutter": {
+   "a": 4.5,
+   "b": 0.5
+  },
+  "handover": {
+   "a": 1.5,
+   "b": 0.5
+  },
+  "main": {
+   "a": 14.5,
+   "b": 0.5
+  },
+  "float": {
+   "a": 10.5,
+   "b": 0.5
+  }
+ },
+ "architectures": {
+  "single": {
+   "arch": {
+    "dualTrigger": false,
+    "mainsNeeded": 3
+   },
+   "now": {
+    "mean": 0.42452,
+    "lcb": 0.11257,
+    "mcMean": 0.42479,
+    "mcLcb": 0.10735
+   },
+   "weakest": [
+    {
+     "e": "trigger",
+     "gain": 0.06412,
+     "loss": 0.05281
+    },
+    {
+     "e": "handover",
+     "gain": 0.04548,
+     "loss": 0.05884
+    },
+    {
+     "e": "mortar",
+     "gain": 0.00708,
+     "loss": 0.02411
+    }
+   ],
+   "plans": {
+    "0.9": {
+     "cost": 8795,
+     "counts": [
+      1,
+      24,
+      16,
+      16,
+      18,
+      87
+     ],
+     "lcb": 0.90003,
+     "mean": 0.95,
+     "pAllPass": 0.00020777429705593178,
+     "visited": 176114
+    },
+    "0.95": {
+     "cost": 19555,
+     "counts": [
+      5,
+      44,
+      24,
+      16,
+      51,
+      167
+     ],
+     "lcb": 0.95001,
+     "mean": 0.9753,
+     "pAllPass": 0.000023144478318008896,
+     "visited": 1735231
+    },
+    "0.97": {
+     "cost": 37785,
+     "counts": [
+      15,
+      96,
+      32,
+      16,
+      60,
+      373
+     ],
+     "lcb": 0.97,
+     "mean": 0.98584,
+     "pAllPass": 0.0000022247457696243763,
+     "visited": 3170596
+    }
+   }
+  },
+  "dual": {
+   "arch": {
+    "dualTrigger": true,
+    "mainsNeeded": 3,
+    "ccf": 0.1
+   },
+   "now": {
+    "mean": 0.51268,
+    "lcb": 0.1706,
+    "mcMean": 0.51332,
+    "mcLcb": 0.16093
+   },
+   "weakest": [
+    {
+     "e": "handover",
+     "gain": 0.07245,
+     "loss": 0.09024
+    },
+    {
+     "e": "trigger",
+     "gain": 0.06255,
+     "loss": 0.06569
+    },
+    {
+     "e": "mortar",
+     "gain": 0.01118,
+     "loss": 0.0375
+    }
+   ],
+   "plans": {
+    "0.9": {
+     "cost": 7405,
+     "counts": [
+      1,
+      20,
+      24,
+      16,
+      18,
+      29
+     ],
+     "lcb": 0.90002,
+     "mean": 0.9525,
+     "pAllPass": 0.00045178263459165187,
+     "visited": 66487
+    },
+    "0.95": {
+     "cost": 16570,
+     "counts": [
+      4,
+      44,
+      24,
+      16,
+      45,
+      46
+     ],
+     "lcb": 0.95001,
+     "mean": 0.97621,
+     "pAllPass": 0.00006923634995884248,
+     "visited": 686163
+    },
+    "0.97": {
+     "cost": 30690,
+     "counts": [
+      13,
+      84,
+      32,
+      16,
+      60,
+      104
+     ],
+     "lcb": 0.97001,
+     "mean": 0.98626,
+     "pAllPass": 0.00000702649075696727,
+     "visited": 2132233
+    }
+   }
+  }
+ },
+ "headline": {
+  "target": 0.95,
+  "conf": 0.9,
+  "singleCost": 19555,
+  "dualCost": 16570,
+  "saving": 0.1526,
+  "sentence": "Making the deploy trigger dual-string cuts the cheapest all-pass campaign that demonstrates 95% recovery reliability at 90% confidence from EUR 19.6M to EUR 16.6M (15% less), under the stated cost assumptions."
+ },
+ "successRun": {
+  "R": 0.99,
+  "C": 0.9,
+  "n": 230
+ }
+}

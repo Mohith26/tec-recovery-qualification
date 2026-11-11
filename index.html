@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nyx Recovery Qualification · The Exploration Company</title>
+<link rel="icon" href="https://cdn.prod.website-files.com/664dc45ba73c02902a082a2d/666857df0d5f74562bfd8bc9_32.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>window.__errs=[];addEventListener("error",e=>__errs.push(String(e.message)));addEventListener("unhandledrejection",e=>__errs.push(String(e.reason)));</script>
+</head>
+<body>
+<nav class="nav">
+  <a class="logo" href="#" aria-label="The Exploration Company"><img src="https://cdn.prod.website-files.com/664dc45ba73c02902a082a2d/66684d31ab9070274cfb0382_Logo_Full-W%201.svg" alt="The Exploration Company"></a>
+  <div class="nav-links"><a href="#">Nyx</a><a href="#" class="on">Recovery qualification</a><a href="#evidence">Evidence</a><a href="#plan">Test campaigns</a></div>
+  <button class="pill yellow" id="btnExport">Export plan</button>
+</nav>
+
+<header class="hero">
+  <div class="hero-in">
+    <div class="label">Nyx · Recovery system · Qualification</div>
+    <h1 id="heroTitle">Loading</h1>
+    <p id="heroSub" class="hero-sub"></p>
+    <div class="controls" role="group" aria-label="Analysis settings">
+      <div class="ctl"><span>Target reliability</span><div class="seg" id="segTarget"></div></div>
+      <div class="ctl"><span>Confidence</span><div class="seg" id="segConf"></div></div>
+      <div class="ctl"><span>Deploy trigger</span><div class="seg" id="segArch"></div></div>
+      <div class="ctl"><span>Mains needed</span><div class="seg" id="segMains"></div></div>
+    </div>
+  </div>
+  <div class="hero-stat" aria-live="polite">
+    <div class="label">Demonstrated today</div>
+    <div class="big" id="statNow">-</div>
+    <div class="small" id="statNowSub"></div>
+    <div class="label" style="margin-top:22px">Cheapest all-pass campaign to target</div>
+    <div class="big" id="statPlan">-</div>
+    <div class="small" id="statPlanSub"></div>
+  </div>
+</header>
+
+<main class="light">
+  <section class="block">
+    <div class="block-head"><div class="label dark">Recovery chain</div><h2>Where the uncertainty sits.</h2><p class="lede">Each stage's reliability posterior from public evidence and stated priors. Click a stage for details. Keys: <kbd>←</kbd><kbd>→</kbd> move, <kbd>Enter</kbd> open.</p></div>
+    <div class="chain" id="chain" role="listbox" aria-label="Recovery stages"></div>
+  </section>
+
+  <section class="block two" id="plan">
+    <div class="card">
+      <div class="card-head"><div><div class="label dark">Test campaign</div><h3 id="planTitle">Cheapest all-pass campaign</h3></div><span class="tag" id="planTag"></span></div>
+      <div id="planBody"></div>
+      <div class="row-btns"><button class="pill black" id="btnSolve">Re-solve</button><button class="pill outline" id="btnCsv">Download CSV</button></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><div><div class="label dark">Cost of confidence</div><h3>Campaign cost by target</h3></div></div>
+      <svg id="costChart" class="chart" viewBox="0 0 520 260" role="img" aria-label="Campaign cost by target reliability"></svg>
+      <p class="fine" id="costNote"></p>
+    </div>
+  </section>
+
+  <section class="block" id="evidence">
+    <div class="block-head"><div class="label dark">Evidence ledger</div><h2>What counts, and how much.</h2><p class="lede">Public events and their weights. Toggle an event, change its weight, or log a new test result. Changes are saved in this browser.</p></div>
+    <div class="card">
+      <table class="tbl" id="evTable"></table>
+      <form class="add" id="addForm">
+        <label>Log a result <select id="addType" aria-label="Test type"></select></label>
+        <label><select id="addOutcome" aria-label="Outcome"><option value="pass">All passed</option><option value="fail">Failed</option></select></label>
+        <label id="failElLabel"><select id="addFailEl" aria-label="Failed element"></select></label>
+        <button class="pill black" type="submit">Add to ledger</button>
+        <button class="pill outline" type="button" id="btnReset">Reset to public evidence</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<aside class="drawer hidden" id="drawer" role="dialog" aria-label="Stage details"></aside>
+<div class="overlay" id="loading"><div class="spin"></div><p>Loading model</p></div>
+<div class="overlay hidden" id="error" role="alert"><p id="errorText">Could not load.</p><button class="pill yellow" onclick="location.reload()">Retry</button></div>
+<div class="toast hidden" id="toast" role="status"></div>
+<footer class="foot">Unofficial concept demo by Mohith Gajjela. Not affiliated with The Exploration Company. Public evidence from TEC releases and press; priors, architecture details and test costs are stated assumptions. <a href="https://github.com/Mohith26/tec-recovery-qualification">Source</a></footer>
+<script type="module" src="app.js"></script>
+</body>
+</html>
